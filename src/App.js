@@ -61,11 +61,10 @@ const App = () => {
           account: accounts[0],
         })
         .then((response) => {
-          const resp = {...response.account, grade: parseInt(response.account.grade)}
           setAuth((prev) => ({
             ...prev,
             token: response.accessToken,
-            user: resp,
+            user: response.account,
           }));
 
           testToken(response.accessToken);

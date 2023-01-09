@@ -94,13 +94,14 @@ export const errorCheck = (original, form, classContext) => {
 
 //class to year converter
 export const yearConverter = (clas) => {
-  if (clas == 12) {
+  const cla = parseInt(clas) + 1;
+  if (cla == 12) {
     return "Senior";
-  } else if (clas == 11) {
+  } else if (cla == 11) {
     return "Junior";
-  } else if (clas == 10) {
+  } else if (cla == 10) {
     return "Sophomore";
-  } else if (clas == 9) {
+  } else if (cla == 9) {
     return "Freshman";
   }
 };
