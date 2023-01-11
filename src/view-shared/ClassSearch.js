@@ -372,17 +372,17 @@ const ClassSearch = ({ history }) => {
             rowClassName="row"
             columns={columns}
             dataSource={classContext.filter((clas) => {
-              var oneTagsThere = false;
+              var allTagsThere = true;
               var oneCreditsThere = false;
               var oneGradeLevelThere = false;
 
               tagSelect.forEach((item) => {
-                if (clas.tags.indexOf(item) !== -1) {
-                  oneTagsThere = true;
+                if (!clas.tags.includes(item)) {
+                  allTagsThere = false;
                 }
               });
               if (tagSelect.length === 0) {
-                oneTagsThere = true;
+                allTagsThere = true;
               }
               creditSelect.forEach((item) => {
                 if (clas.credit.indexOf(item) !== -1) {
@@ -403,7 +403,7 @@ const ClassSearch = ({ history }) => {
 
               return (
                 oneGradeLevelThere &&
-                oneTagsThere &&
+                allTagsThere &&
                 oneCreditsThere &&
                 `${clas.name} (${clas.course_id})`
                   .toLowerCase()
